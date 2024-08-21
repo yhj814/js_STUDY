@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 06</title>
+        <style>
+            div.wrap {
+                width: 200px;
+                height: 200px;
+                position: relative;
+            }
+
+            div.image,
+            div.cancel {
+                cursor: pointer;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            div.image {
+                background-image: url("images/icon3.png");
+                width: 100%;
+                height: 100%;
+            }
+
+            div.cancel {
+                display: none;
+                position: absolute;
+                background-image: url("images/cancel.png");
+                width: 80px;
+                height: 80px;
+                top: 0;
+                right: 0;
+            }
+
+            #attach {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>이미지 썸네일</h1>
+        <div class="wrap">
+            <!-- for는 input태그가 밖에 있으면 연결해주는 역할을한다 input 아이디와 같게 설정-->
+            <label for="attach">
+                <div class="image"></div>
+            </label>
+            <div class="cancel"></div>
+        </div>
+        <input type="file" id="attach" />
+    </body>
+    <script>
+        const input = document.getElementById("attach");
+        const thumbnail = document.querySelector("div.image");
+        const cancel = document.querySelector("div.cancel");
+
+        input.addEventListener("change", (e) => {
+            // 파일 하나 가져오기
+            const [file] = e.target.files;
+            // 파일을 읽어오는 객체
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            // 절대경로 확인하기 위해 reader를 출력해본다
+            console.log(reader);
+            // 이때 load이벤트 발생
+            // 위에 e 랑은 다른 함수이다
+            reader.addEventListener("load", (e) => {
+                // 절대경로를 올릴 수 없으므로
+                const path = e.target.result;
+                if (path.includes("image")) {
+                    // 지금 이미지로 썸네일 구성
+                    thumbnail.style.backgroundImage = `url(${path})`;
+                    cancel.style.display = "block";
+                } else {
+                    // 원래 이미지 구성
+                    thumbnail.style.backgroundImage = `url(images/icon3.png)`;
+                }
+            });
+        });
+
+        cancel.addEventListener("click", (e) => {
+            thumbnail.style.backgroundImage = `url(images/icon3.png)`;
+            // input 태그에 업로드된 파일의 정보를 없애야 한다.
+            console.log(input.value);
+            input.value = "";
+            cancel.style.display = "none";
+        });
+    </script>
+</html>

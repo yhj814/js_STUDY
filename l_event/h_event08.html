@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 위임</title>
+        <style>
+            #container {
+                border: 1px dashed black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container" style="height: 400px"></div>
+    </body>
+    <script>
+        const container = document.getElementById("container");
+        const children = null;
+
+        container.innerHTML = `<div class="child child1">이벤트 위임1</div>`;
+        container.innerHTML += `<div class="child child2">이벤트 위임2</div>`;
+
+        container.addEventListener("click", (e) => {
+            // 처음 들어온 클래스가 child라면
+            if (e.target.classList[0] === "child") {
+                // 그 값을 띄운다
+                alert(`${e.target.classList[1]} 들어옴!`);
+            }
+        });
+
+        //  이벤트는 원래 만들어진 태그에서만 적용된다 (새롭게 만든 태그는 이벤트 적용 X)
+        //  이럴때는 원래 만들어진 태그(부모)에 이벤트 위임을 줘서 자식 요소들도 사용할수 있게끔 해야한다
+        // children = document.querySelectorAll(".child");
+
+        // children.forEach((child) => {
+        //     child.addEventListener("click", (e) => {
+        //         alert(`${child.classList[1]} 들어옴!`);
+        //     });
+        // });
+    </script>
+</html>
