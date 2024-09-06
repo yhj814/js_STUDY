@@ -270,7 +270,7 @@ select {
     background-color: powderblue;
 }
 .main-2 {
-    padding: 54px 0px 35px;
+    padding: 54px 0px 0px;
     position: relative;
     background-size: 100% 68px;
     background-repeat: no-repeat;
@@ -299,6 +299,7 @@ select {
     margin: 101px auto;
     display: flex;
     flex-direction: column;
+    margin-bottom: 70px;
 }
 .div-row-middle {
     align-items: center;
@@ -307,6 +308,7 @@ select {
     display: flex;
     flex-flow: row wrap;
     min-width: 0;
+    z-index: 1;
 }
 .div-col {
     position: relative;
@@ -334,7 +336,8 @@ img {
     margin-top: 7px;
     margin-right: -2px;
     background-color: white;
-    padding: 30px;
+    padding: 60px 30px;
+    padding-bottom: 30px;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 4px 0px;
     position: relative;
@@ -450,4 +453,130 @@ a {
     color: rgb(115, 125, 255);
     font-size: 13px;
     font-weight: 500;
+}
+.main-3 {
+    max-width: 1080px;
+    padding: 0px 20px 40px;
+    margin: 0px auto;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+}
+.main-3 span:first-child {
+    border-right: 1px solid rgb(204, 204, 204);
+    height: 14px;
+    padding-right: 12px;
+    margin-right: 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.main-3 .project-num {
+    font-weight: 500;
+}
+.main-3 .right {
+    margin-left: auto;
+    font-size: 13px;
+    color: rgb(118, 118, 118);
+    line-height: 1.25;
+}
+.match-doing-button.on {
+    background-color: rgb(51, 102, 255);
+    padding: 2px 2px 2px 16px;
+}
+.match-doing-button {
+    vertical-align: top;
+    width: 32px;
+    height: 18px;
+    margin: 0px 8px 0px 0px;
+    border-radius: 15.5px;
+    display: inline-flex;
+    cursor: pointer;
+    background-color: rgb(225, 227, 232);
+    padding: 2px 16px 2px 2px;
+}
+.match-doing-button .circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50px;
+    background-color: white;
+}
+.off {
+    display: none;
+}
+.article-div {
+    transform: translateY(50px);
+    z-index: 1;
+}
+.article-3 {
+    max-width: 1080px;
+    padding: 0px 20px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.match-team {
+    margin-top: 7px;
+    margin-right: -2px;
+    background-color: white;
+    padding: 30px 30px;
+    padding-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 4px 0px;
+    position: relative;
+}
+.match-team-title {
+    display: flex;
+}
+.match-team-title h5 {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+}
+.match-team-title h5 a {
+    max-width: 100%;
+    color: rgb(51, 51, 51);
+    overflow-wrap: break-word;
+    word-break: break-all;
+    font-size: 20px;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+.match-team .category {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+.match-team .gap {
+    margin-top: 16px;
+}
+.detail {
+    margin-right: 6px;
+}
+.match-team .category .detail {
+    border-radius: 14px;
+    background-color: rgb(242, 244, 247);
+    height: 28px;
+    line-height: 28px;
+    padding: 0px 12px;
+    color: rgb(102, 102, 102);
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+    font-size: 13px;
+}
+.match-team .game-time {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    line-height: normal;
+    font-size: 14px;
+    letter-spacing: -0.39px;
+    color: rgb(118, 118, 118);
 }

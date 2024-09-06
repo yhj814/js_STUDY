@@ -49,3 +49,40 @@ button.addEventListener("click", () => {
     alert("팀명 검색이 완료되었습니다!");
     document.getElementById("teamForm").submit();
 });
+
+// 매칭중인팀보기 버튼 clsss 가져오기
+const matchDoingButtonOn = document.querySelector(".match-doing-button.on");
+const matchDoingButtonOff = document.querySelector(".match-doing-button.off");
+
+// 매칭중인팀보기 버튼 id 가져오기
+const ButtonOn = document.getElementById("button-on");
+const ButtonOff = document.getElementById("button-off");
+
+// 기존에 off버튼이 css에서 none이 되어있는거를 on버튼을 눌렀을때 off버튼 나타나게 하기
+matchDoingButtonOn.addEventListener("click", () => {
+    ButtonOn.style.display = "none";
+    ButtonOff.style.display = "inline-block";
+});
+//off 버튼을 눌렀을때 on버튼 나타나게 하기
+matchDoingButtonOff.addEventListener("click", () => {
+    ButtonOn.style.display = "inline-block";
+    ButtonOff.style.display = "none";
+});
+
+// 색 바꾸기위해 h1 id 가져옴
+const colorChange = document.getElementById("color-change");
+
+// matchMain.css 에 space-item-text 클래스 색을 가져옴
+const originColor = "rgb(50, 87, 182)";
+
+// 바꿀 색
+const redColor = "red";
+
+// 번갈아가면서 변경되기위해 사용
+let color = true;
+
+// 0.5초마다 색바뀜
+setInterval(() => {
+    colorChange.style.color = color ? redColor : originColor;
+    color = !color;
+}, 500);
